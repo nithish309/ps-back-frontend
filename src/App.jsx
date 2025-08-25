@@ -6,6 +6,7 @@ function ProductList() {
   const [products, setProducts] = useState([]);
   const [newProduct, setNewProduct] = useState({ name: '', price: '', description: '', image: null });
   const [editingProduct, setEditingProduct] = useState(null);
+  const fileInputRef = useRef(null);
 
   // Function to fetch products using Axios (default)
   const fetchProductsWithAxios = async () => {
@@ -54,7 +55,10 @@ function ProductList() {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setProducts([...products, response.data]);
-      setNewProduct({ name: '', price: '', description: '', image: null,image:'' });
+      setNewProduct({ name: '', price: '', description: '', image: null });
+      if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+      }
     } catch (error) {
       console.error('Error creating product:', error);
     }
@@ -114,7 +118,7 @@ function ProductList() {
           value={newProduct.description}
           onChange={handleInputChange}
         />
-        <input type="file" value={newProduct.image} onChange={handleFileChange} />
+        <input type="file" value={newProduct.image} ref={fileInputRef} onChange={handleFileChange} />
         <button className="add-btn" onClick={createProduct}>Add Product</button>
       </div>
       <h1>Products</h1>
