@@ -54,7 +54,7 @@ function ProductList() {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setProducts([...products, response.data]);
-      setNewProduct({ name: '', price: '', description: '', image: null });
+      setNewProduct({ name: '', price: '', description: '', image: null,image:'' });
     } catch (error) {
       console.error('Error creating product:', error);
     }
