@@ -18,18 +18,18 @@ function ProductList() {
   };
 
   // Function to fetch products using Fetch API (as a fallback)
-  const fetchProductsWithFetch = () => {
-    fetch('https://backendpanishop.vercel.app/products', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        // Add 'Authorization': 'Bearer YOUR_TOKEN' if needed
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error('Error:', error));
-  };
+  // const fetchProductsWithFetch = () => {
+  //   fetch('https://backendpanishop.vercel.app/products', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       // Add 'Authorization': 'Bearer YOUR_TOKEN' if needed
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => setProducts(data))
+  //     .catch((error) => console.error('Error:', error));
+  // };
 
   // Use effect to load products when the component mounts
   useEffect(() => {
