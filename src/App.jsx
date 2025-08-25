@@ -118,7 +118,7 @@ function ProductList() {
           value={newProduct.description}
           onChange={handleInputChange}
         />
-        <input type="file" value={newProduct.image} ref={fileInputRef} onChange={handleFileChange} />
+        <input type="file" ref={fileInputRef} onChange={handleFileChange} />
         <button className="add-btn" onClick={createProduct}>Add Product</button>
       </div>
       <h1>Products</h1>
